@@ -34,6 +34,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		isRunning = true;
 	}
+
+	
 	
 	m_player = new Player("Resources/sprite.png", 0, 0);
 	m_map = new Map();
@@ -47,6 +49,12 @@ void Game::handleEvents()
 	{
 	case SDL_QUIT:
 		isRunning = false;
+		break;
+	case SDL_KEYDOWN:
+		if (event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			isRunning = false;
+		}
 		break;
 	default:
 		break;

@@ -9,7 +9,7 @@
 #include "Player.h"
 #include "TextureManager.h"
 #include "Map.h"
-
+#include "cute_c2.h"
 class Game
 {
 public:
