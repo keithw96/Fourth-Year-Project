@@ -1,2 +1,7 @@
 ﻿  Game.cpp
+  Main.cpp
+  Map.cpp
+  Player.cpp
+  TextureManager.cpp
+  Generating Code...
   FYP.vcxproj -> C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\Debug\FYP.exe
