@@ -1,12 +1,14 @@
 #include "Player.h"
 
+#include <box2d/box2d.h>
+
 Player::Player(const char* texture, int x, int y)
 {
 	m_texture = TextureManager::LoadTexture(texture);
 
 	m_x = x;
 	m_y = y;
-
+	
 	srcRect.h = 155;
 	srcRect.w = 200;
 	srcRect.x = 0;
