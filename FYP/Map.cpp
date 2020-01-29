@@ -23,11 +23,11 @@ int lv1[20][25] = {
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-Map::Map()
+Map::Map(SDL_Renderer* renderer)
 {
-	m_dirtTxt = TextureManager::LoadTexture("Resources/dirt.png");
-	m_grassTxt = TextureManager::LoadTexture("Resources/grass.png");
-	m_waterTxt = TextureManager::LoadTexture("Resources/water.png");
+	m_dirtTxt = TextureManager::LoadTexture("Resources/dirt.png", renderer);
+	m_grassTxt = TextureManager::LoadTexture("Resources/grass.png", renderer);
+	m_waterTxt = TextureManager::LoadTexture("Resources/water.png", renderer);
 
 	LoadMap(lv1);
 	m_scale = 96;
@@ -53,7 +53,7 @@ void Map::LoadMap(int level[20][25])
 	}
 }
 
-void Map::DrawMap()
+void Map::DrawMap(SDL_Renderer* renderer)
 {
 	int type = 0;
 	for (int row = 0; row < 20; row++)
@@ -66,13 +66,13 @@ void Map::DrawMap()
 			switch (type)
 			{
 			case 0:
-				TextureManager::Draw(m_waterTxt, src, dest);
+				TextureManager::Draw(m_waterTxt, src, dest, renderer);
 				break;
 			case 1:
-				TextureManager::Draw(m_grassTxt, src, dest);
+				TextureManager::Draw(m_grassTxt, src, dest, renderer);
 				break;
 			case 2:
-				TextureManager::Draw(m_dirtTxt, src, dest);
+				TextureManager::Draw(m_dirtTxt, src, dest, renderer);
 				break;
 			default:
 				break;

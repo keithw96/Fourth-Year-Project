@@ -3,8 +3,6 @@
 Player* m_player;
 Map* m_map;
 
-SDL_Renderer* Game::m_renderer = nullptr;
-
 Game::Game()
 {
 
@@ -35,23 +33,20 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = true;
 	}
 
-	
-	
-	m_player = new Player("Resources/sprite.png", 0, 0);
-	m_map = new Map();
+	m_player = new Player("Resources/sprite.png", 0, 0, m_renderer);
+	m_map = new Map(m_renderer);
 }
 
 void Game::handleEvents()
 {
-	SDL_Event event;
-	SDL_PollEvent(&event);
-	switch (event.type)
+	SDL_PollEvent(&m_event);
+	switch (m_event.type)
 	{
 	case SDL_QUIT:
 		isRunning = false;
 		break;
 	case SDL_KEYDOWN:
-		if (event.key.keysym.sym == SDLK_ESCAPE)
+		if (m_event.key.keysym.sym == SDLK_ESCAPE)
 		{
 			isRunning = false;
 		}
@@ -63,14 +58,14 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	m_player->Update();
+	m_player->Update(m_event);
 }
 
 void Game::render()
 {
 	SDL_RenderClear(m_renderer);
-	m_map->DrawMap();
-	m_player->Render();
+	m_map->DrawMap(m_renderer);
+	m_player->Render(m_renderer);
 	SDL_RenderPresent(m_renderer);
 }
 

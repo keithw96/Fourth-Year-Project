@@ -1,15 +1,18 @@
 #pragma once
+#ifndef MAP
+#define MAP	
+
 #include "Game.h"
 #include "TextureManager.h"
 class Map
 {
 public:
 
-	Map();
+	Map(SDL_Renderer* renderer);
 	~Map();
 
 	void LoadMap(int level[20][25]);
-	void DrawMap();
+	void DrawMap(SDL_Renderer* renderer);
 
 private:
 
@@ -21,3 +24,5 @@ private:
 	int m_map[20][25];
 };
 
+
+#endif // !MAP

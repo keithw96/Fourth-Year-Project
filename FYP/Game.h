@@ -6,10 +6,10 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <iostream>
-#include "Player.h"
+
 #include "TextureManager.h"
+#include "Player.h"
 #include "Map.h"
-#include "cute_c2.h"
 class Game
 {
 public:
@@ -24,11 +24,13 @@ public:
 
 	bool running() { return isRunning; }
 
-	static SDL_Renderer* m_renderer;
+	
+	SDL_Renderer* m_renderer;
+	SDL_Event m_event;
 private:
 	bool isRunning;
 	SDL_Window* m_window;
-};
 
+};
 
 #endif // !GAME
