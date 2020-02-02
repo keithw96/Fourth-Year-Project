@@ -4,14 +4,15 @@ Player::Player(const char* texture, int x, int y, SDL_Renderer* renderer)
 {
 	m_texture = TextureManager::LoadTexture(texture, renderer);
 
-	m_position = new Vector2D(x, y);
-	m_velocity = new Vector2D(0, 0);
-	m_speed = new Vector2D(4, 4);
+	m_positionX = x; m_positionY = y;
+	m_velocity = 0; 
+	m_speed = 4; 
+
 	srcRect.h = 200;
 	srcRect.w = 155;
-	srcRect.x = m_position->getX();
-	srcRect.y = m_position->getY();
-
+	srcRect.x = m_positionX;
+	srcRect.y = m_positionY;
+	
 	destRect.w = srcRect.w;
 	destRect.h = srcRect.h;
 	destRect.x = 0;
@@ -26,9 +27,12 @@ Player::~Player()
 void Player::Update(SDL_Event e)
 {
 	handleInput(e);
-	m_position->setX(m_position->getX() + (m_velocity->getX() * m_speed->getX()));
 
-	destRect.x = m_position->getX();
+	m_positionX += (m_velocity * m_speed);
+
+	destRect.x = m_positionX;
+
+	std::cout << m_positionX << std::endl;
 }
 
 void Player::Render(SDL_Renderer* renderer)
@@ -43,10 +47,10 @@ void Player::handleInput(SDL_Event e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_a:
-			m_velocity = new Vector2D(-1, -1);
+			m_velocity = -1;
 			break;
 		case SDLK_d:
-			m_velocity = new Vector2D(1, 1);
+			m_velocity = 1;
 			break;
 		default:
 			break;
@@ -58,10 +62,10 @@ void Player::handleInput(SDL_Event e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_a:
-			m_velocity = new Vector2D(0, 0);
+			m_velocity = 0;
 			break;
 		case SDLK_d:
-			m_velocity = new Vector2D(0, 0);
+			m_velocity = 0;
 			break;
 		default:
 			break;

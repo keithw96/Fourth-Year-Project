@@ -4,8 +4,6 @@
 
 #include <SDL.h>
 #include "TextureManager.h"
-#include "Vector2D.h"
-
 class Player
 {
 public:
@@ -16,9 +14,11 @@ public:
 	void Render(SDL_Renderer* renderer);
 	void handleInput(SDL_Event e);
 private:
-	Vector2D* m_position;
-	Vector2D* m_velocity;
-	Vector2D* m_speed;
+
+	int m_positionX , m_positionY;
+	int m_velocity;
+	int m_speed;
+
 	SDL_Texture* m_texture;
 	SDL_Rect srcRect, destRect;
 };

@@ -1,7 +1,2 @@
 ﻿  Player.cpp
-C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\FYP\Player.cpp(7,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\FYP\Player.cpp(7,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\FYP\Player.cpp(12,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\FYP\Player.cpp(13,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\FYP\Player.cpp(31,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   FYP.vcxproj -> C:\Users\oakda\OneDrive\Documents\College Stuff\FYP\Fourth-Year-Project\Debug\FYP.exe
