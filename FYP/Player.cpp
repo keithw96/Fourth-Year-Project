@@ -8,13 +8,13 @@ Player::Player(const char* texture, int x, int y, SDL_Renderer* renderer)
 	m_velocity = 0; 
 	m_speed = 4; 
 
-	srcRect.h = 200;
-	srcRect.w = 155;
+	srcRect.w = 200;
+	srcRect.h = 155;
 	srcRect.x = m_positionX;
 	srcRect.y = m_positionY;
 	
-	destRect.w = srcRect.w;
-	destRect.h = srcRect.h;
+	destRect.w = srcRect.w * 2;
+	destRect.h = srcRect.h * 2;
 	destRect.x = 0;
 	destRect.y = 800;
 }
